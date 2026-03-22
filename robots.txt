@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Allow: /index.php
+Allow: /login.php
+Allow: /signup.php
+
+# Block private/admin areas from indexing
+Disallow: /dashboard.php
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /config/
+Disallow: /api/
+Disallow: /debug.php
+Disallow: /error.php
+
+# Block backup files
+Disallow: *.bak
+Disallow: *.sql
+Disallow: *.gz
+
+Sitemap: https://excellent-simplified.ct.ws/sitemap.xml
