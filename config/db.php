@@ -1,9 +1,9 @@
 <?php
-$host = 'mysql.railway.internal';
+$host = 'ballast.proxy.rlwy.net';
 $dbname = 'railway';
 $username = 'admin';
 $password = 'MyNewPass123!';
-$port = 3306;
+$port = 14518;
 
 try {
     $pdo = new PDO(
