@@ -5,7 +5,7 @@ session_start();
 require_once __DIR__.'/../config/db.php';
 
 $user_id=isset($_SESSION['user_id'])?(int)$_SESSION['user_id']:0;
-if(!$user_id){header('Location: ../login.html?redirect=exams/practice_test.php');exit;}
+if(!$user_id){header('Location: ../login.php?redirect=exams/practice_test.php');exit;}
 
 $s=$conn->prepare("SELECT username,email,google_name,google_picture FROM users WHERE id=? LIMIT 1");
 $userRow=[];

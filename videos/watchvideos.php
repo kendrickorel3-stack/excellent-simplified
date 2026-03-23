@@ -52,7 +52,7 @@ body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;background:linear-gradi
       <a href="/dashboard.php" style="color:#fff;text-decoration:none;font-weight:700;margin-right:12px">Dashboard</a>
       <a href="/videos/lessons.php" style="color:#fff;text-decoration:none;font-weight:700">All Lessons</a>
     <?php else: ?>
-      <a href="/login.html" style="color:#fff;text-decoration:none;font-weight:700">Login</a>
+      <a href="/login.php" style="color:#fff;text-decoration:none;font-weight:700">Login</a>
     <?php endif;?>
   </div>
 </header>
@@ -63,7 +63,7 @@ body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;background:linear-gradi
 
 <?php
 if (!$user_id) {
-    echo '<div class="empty">You need to <a href="/login.html" style="color:#fff">login</a> to see your progress.</div>';
+    echo '<div class="empty">You need to <a href="/login.php" style="color:#fff">login</a> to see your progress.</div>';
     echo '</div></body></html>';
     exit;
 }

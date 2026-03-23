@@ -5,7 +5,7 @@ error_reporting(E_ERROR|E_PARSE); ini_set('display_errors','0');
 session_start();
 require_once __DIR__.'/config/db.php';
 $user_id=isset($_SESSION['user_id'])?(int)$_SESSION['user_id']:0;
-if(!$user_id){header('Location: login.html?redirect=formula.php');exit;}
+if(!$user_id){header('Location: login.php?redirect=formula.php');exit;}
 $userRow=[];
 $s=$conn->prepare("SELECT username,google_name,google_picture FROM users WHERE id=? LIMIT 1");
 if($s){$s->bind_param('i',$user_id);$s->execute();$userRow=$s->get_result()->fetch_assoc()??[];$s->close();}

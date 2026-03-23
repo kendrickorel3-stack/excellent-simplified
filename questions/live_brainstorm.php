@@ -20,7 +20,7 @@ $user_picture = $_SESSION['google_picture'] ?? $userRow['google_picture'] ?? nul
 
 if (!$user_id) {
     if (!empty($_REQUEST['action'])) { echo json_encode(['success'=>false,'error'=>'Not authenticated']); exit; }
-    header('Location: ../login.html'); exit;
+    header('Location: ../login.php'); exit;
 }
 
 // ── Helpers ─────────────────────────────────────────────────────

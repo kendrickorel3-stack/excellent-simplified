@@ -658,7 +658,7 @@ body{
           <div style="font-size:22px;margin-bottom:8px">🎓</div>
           <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px">Track Your Progress</div>
           <div style="font-size:12px;color:var(--sub);margin-bottom:14px;line-height:1.6">Log in to save notes, react to lessons, and track your learning.</div>
-          <a href="../login.html" style="display:block;padding:10px;border-radius:9px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;font-weight:700;font-size:13px;text-decoration:none;text-align:center">Log In / Sign Up</a>
+          <a href="../login.php" style="display:block;padding:10px;border-radius:9px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;font-weight:700;font-size:13px;text-decoration:none;text-align:center">Log In / Sign Up</a>
         </div>
       </div>
       <?php endif; ?>
@@ -685,7 +685,7 @@ const API       = 'watch_video.php';
 
 /* ════════ REACTIONS ════════ */
 async function toggleReact(type) {
-  if (!IS_LOGGED) { window.location.href = '../login.html'; return; }
+  if (!IS_LOGGED) { window.location.href = '../login.php'; return; }
   const btn = document.querySelector(`.react-btn[data-type="${type}"]`);
   btn.classList.add('popping');
   setTimeout(() => btn.classList.remove('popping'), 400);

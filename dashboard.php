@@ -858,7 +858,7 @@ footer {
     </div>
     <a href="auth/logout.php" class="hdr-btn"><i class="fa fa-right-from-bracket" style="font-size:10px"></i><span class="btn-lbl"> Logout</span></a>
     <?php else: ?>
-    <a href="login.html" class="hdr-btn"><i class="fa fa-sign-in-alt" style="font-size:10px"></i><span class="btn-lbl"> Login</span></a>
+    <a href="login.php" class="hdr-btn"><i class="fa fa-sign-in-alt" style="font-size:10px"></i><span class="btn-lbl"> Login</span></a>
     <?php endif; ?>
     <button class="theme-pill" id="themeBtn" onclick="toggleTheme()">
       <span id="themeIcon">🌙</span>
@@ -897,11 +897,11 @@ footer {
         const res = await fetch('login.php', { method:'POST', headers:{'Content-Type':'application/json'}, credentials:'same-origin', body: JSON.stringify({ idToken }) });
         const j = await res.json().catch(()=>null);
         if (j?.success) window.location.reload();
-        else window.location.href = 'login.html';
-      } catch { window.location.href = 'login.html'; }
-    } else if (!user) { window.location.href = 'login.html'; }
+        else window.location.href = 'login.php';
+      } catch { window.location.href = 'login.php'; }
+    } else if (!user) { window.location.href = 'login.php'; }
   });
-  setTimeout(() => { if (!tried) window.location.href = 'login.html'; }, 5000);
+  setTimeout(() => { if (!tried) window.location.href = 'login.php'; }, 5000);
 </script>
 
 <?php else: ?>

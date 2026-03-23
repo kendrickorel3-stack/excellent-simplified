@@ -24,7 +24,7 @@ if ($user_id) {
 $display_name    = $_SESSION['google_name']    ?? $userRow['google_name']    ?? $userRow['username'] ?? 'Admin';
 $display_picture = $_SESSION['google_picture'] ?? $userRow['google_picture'] ?? null;
 
-if (!$user_id) { header('Location: ../login.html'); exit; }
+if (!$user_id) { header('Location: ../login.php'); exit; }
 
 function jout(array $d): void {
     header('Content-Type: application/json; charset=utf-8');
