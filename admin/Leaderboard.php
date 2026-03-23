@@ -7,7 +7,8 @@ ini_set('session.cookie_samesite', 'Lax');
 ini_set('display_errors', '1');
 error_reporting(E_ALL);
 session_start();
-require_once __DIR__ . '/../config/db.php';
+require_once __DIR__ . "/../config/db.php";
+$conn->query("SET SESSION sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");
 header('Cache-Control: no-store');
 
 // ── Admin Auth ───────────────────────────────────────────────────────────────
