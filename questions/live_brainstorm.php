@@ -179,7 +179,7 @@ if (!empty($_REQUEST['action'])) {
 
         // Points
         $pts = 0.75;
-        @$conn->query("ALTER TABLE users ADD COLUMN IF NOT EXISTS points DECIMAL(10,2) DEFAULT 0");
+        @$conn->query("ALTER TABLE users ADD COLUMN points DECIMAL(10,2) DEFAULT 0");
         $up = $conn->prepare("UPDATE users SET points=points+? WHERE id=?");
         if ($up) { $up->bind_param('di',$pts,$user_id); $up->execute(); }
 

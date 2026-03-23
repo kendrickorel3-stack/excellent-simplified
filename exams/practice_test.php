@@ -66,8 +66,8 @@ if($_SERVER['REQUEST_METHOD']==='POST'&&($_POST['action']??'')==='save_score'){
   header('Content-Type: application/json');
   $sc=(int)($_POST['score']??0);$tot=(int)($_POST['total']??0);
   if($user_id&&$tot>0){
-    @$conn->query("ALTER TABLE users ADD COLUMN IF NOT EXISTS score INT DEFAULT 0");
-    @$conn->query("ALTER TABLE users ADD COLUMN IF NOT EXISTS points DECIMAL(10,2) DEFAULT 0");
+    @$conn->query("ALTER TABLE users ADD COLUMN score INT DEFAULT 0");
+    @$conn->query("ALTER TABLE users ADD COLUMN points DECIMAL(10,2) DEFAULT 0");
     $pts=round($sc/$tot*10,2);
     $u=$conn->prepare("UPDATE users SET score=score+?,points=points+? WHERE id=?");
     if($u){$u->bind_param('idi',$sc,$pts,$user_id);$u->execute();$u->close();}
