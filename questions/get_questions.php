@@ -10,11 +10,6 @@ require_once __DIR__ . "/../config/db.php";
 $user_id = isset($_SESSION['user_id']) ? (int)$_SESSION['user_id'] : 0;
 
 // ── Ensure columns exist (safe, idempotent) ──────────────────────
-@$conn->query("ALTER TABLE users ADD COLUMN is_admin TINYINT DEFAULT 0");
-@$conn->query("ALTER TABLE brainstorm_answers ADD COLUMN admin_liked TINYINT DEFAULT 0");
-@$conn->query("ALTER TABLE brainstorm_answers ADD COLUMN admin_note VARCHAR(500) DEFAULT NULL");
-@$conn->query("ALTER TABLE questions ADD COLUMN timer_ends_at DATETIME DEFAULT NULL");
-@$conn->query("ALTER TABLE questions ADD COLUMN next_in_queue TINYINT DEFAULT 0");
 
 $userRow = [];
 if ($user_id) {
