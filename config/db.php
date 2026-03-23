@@ -5,6 +5,14 @@ $username = 'admin';
 $password = 'MyNewPass123!';
 $port = 14518;
 
+// MySQLi connection (used by most files)
+$conn = new mysqli($host, $username, $password, $dbname, $port);
+if ($conn->connect_error) {
+    die(json_encode(['error' => 'Connection failed: ' . $conn->connect_error]));
+}
+$conn->set_charset('utf8mb4');
+
+// PDO connection (used by some files)
 try {
     $pdo = new PDO(
         "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4",
@@ -17,6 +25,6 @@ try {
         ]
     );
 } catch (PDOException $e) {
-    die(json_encode(['error' => 'Database connection failed: ' . $e->getMessage()]));
+    die(json_encode(['error' => 'PDO failed: ' . $e->getMessage()]));
 }
 ?>
