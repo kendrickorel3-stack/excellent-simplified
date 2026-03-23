@@ -1,4 +1,3 @@
-
 <?php
 // admin/dashboard.php
 // Improved admin dashboard: responsive, collapsible sidebar (persisted), chat link, and subject assignment for questions
