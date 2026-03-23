@@ -23,15 +23,15 @@ if (isset($_SESSION['user_id']) && (int)$_SESSION['user_id'] > 0) {
 <meta name="author" content="Excellent Simplified Academy">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#04020e">
-<link rel="canonical" href="https://excellent-simplified.ct.ws/">
+<link rel="canonical" href="https://excellent-simplified-production.up.railway.app/">
 
 <!-- ── Open Graph (WhatsApp, Facebook, Telegram) ── -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Excellent Simplified">
 <meta property="og:title" content="Excellent Simplified — Free JAMB & WAEC Study Platform">
 <meta property="og:description" content="Nigeria's smartest free study platform. Watch lessons, practice JAMB & WAEC past questions, get AI tutoring, and compete with classmates. Join 10,000+ students today!">
-<meta property="og:url" content="https://excellent-simplified.ct.ws/">
-<meta property="og:image" content="https://excellent-simplified.ct.ws/assets/og-image.png">
+<meta property="og:url" content="https://excellent-simplified-production.up.railway.app/">
+<meta property="og:image" content="https://excellent-simplified-production.up.railway.app/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_NG">
@@ -40,7 +40,7 @@ if (isset($_SESSION['user_id']) && (int)$_SESSION['user_id'] > 0) {
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Excellent Simplified — Free JAMB & WAEC Study Platform">
 <meta name="twitter:description" content="Nigeria's smartest free study platform. Watch lessons, practice past questions, get AI tutoring. Join 10,000+ students!">
-<meta name="twitter:image" content="https://excellent-simplified.ct.ws/assets/og-image.png">
+<meta name="twitter:image" content="https://excellent-simplified-production.up.railway.app/assets/og-image.png">
 
 <!-- ── Structured Data (Google Rich Results) ── -->
 <script type="application/ld+json">
@@ -48,7 +48,7 @@ if (isset($_SESSION['user_id']) && (int)$_SESSION['user_id'] > 0) {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
   "name": "Excellent Simplified Academy",
-  "url": "https://excellent-simplified.ct.ws",
+  "url": "https://excellent-simplified-production.up.railway.app",
   "description": "Free online study platform for Nigerian JAMB and WAEC students. Video lessons, past questions, AI tutoring, and leaderboards.",
   "educationalCredentialAwarded": "JAMB UTME, WAEC SSCE",
   "audience": {

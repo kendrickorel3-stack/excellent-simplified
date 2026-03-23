@@ -115,8 +115,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Join Excellent Simplified Free — JAMB & WAEC Study Platform">
 <meta property="og:description" content="Create your free account and join 10,000+ Nigerian students preparing for JAMB and WAEC exams. Video lessons, past questions, AI tutoring — all free!">
-<meta property="og:url" content="https://excellent-simplified.ct.ws/signup.php">
-<meta property="og:image" content="https://excellent-simplified.ct.ws/assets/og-image.png">
+<meta property="og:url" content="https://excellent-simplified-production.up.railway.app/signup.php">
+<meta property="og:image" content="https://excellent-simplified-production.up.railway.app/assets/og-image.png">
 <meta name="theme-color" content="#04020e">
 <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&family=Cabinet+Grotesk:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>

@@ -151,8 +151,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta name="robots" content="noindex, follow">
 <meta property="og:title" content="Sign In — Excellent Simplified">
 <meta property="og:description" content="Sign in to access free JAMB & WAEC study materials, video lessons, and AI tutoring.">
-<meta property="og:url" content="https://excellent-simplified.ct.ws/login.php">
-<meta property="og:image" content="https://excellent-simplified.ct.ws/assets/og-image.png">
+<meta property="og:url" content="https://excellent-simplified-production.up.railway.app/login.php">
+<meta property="og:image" content="https://excellent-simplified-production.up.railway.app/assets/og-image.png">
 <meta name="theme-color" content="#04020e">
 <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&family=Cabinet+Grotesk:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
