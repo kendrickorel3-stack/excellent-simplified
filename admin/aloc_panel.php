@@ -9,7 +9,7 @@ require_once __DIR__.'/../config/db.php';
 
 // ── Auth: admin only ─────────────────────────────────────────────
 $user_id = isset($_SESSION['user_id']) ? (int)$_SESSION['user_id'] : 0;
-if (!$user_id) { header('Location: ../login.html'); exit; }
+if (!$user_id) { header('Location: ../login.php'); exit; }
 
 // Check admin flag
 $isAdmin = false;
