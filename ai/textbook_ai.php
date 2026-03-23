@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 /* ================== CONFIG ================== */
 // your Groq API key (as provided)
-$GROQ_API_KEY = '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'>
+$GROQ_API_KEY = getenv('GROQ_API_KEY');
 
 // default model to request (you can change to a smaller model if needed)
 // check available models via GET https://api.groq.com/openai/v1/models (requires key).
