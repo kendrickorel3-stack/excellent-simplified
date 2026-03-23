@@ -62,8 +62,6 @@ $conn->query("CREATE TABLE IF NOT EXISTS questions (
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
-@$conn->query("ALTER TABLE questions ADD COLUMN aloc_year VARCHAR(10) DEFAULT NULL");
-@$conn->query("ALTER TABLE questions ADD COLUMN aloc_source VARCHAR(30) DEFAULT NULL");
 
 // ── AJAX: Fetch questions from ALOC ──────────────────────────────
 if (isset($_GET['action']) && $_GET['action'] === 'fetch') {
