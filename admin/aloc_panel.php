@@ -1,9 +1,10 @@
 <?php
+ob_start();
 // admin/aloc_panel.php — ALOC Question Browser & Brainstorm Launcher
 // Links from admin/dashboard.php  ·  Writes to the same `questions` table
 // used by questions/get_questions.php (brainstorm control center)
 
-error_reporting(E_ALL); ini_set('display_errors','1');
+error_reporting(E_ERROR|E_PARSE); ini_set('display_errors','0');
 session_start();
 require_once __DIR__.'/../config/db.php';
 
@@ -141,6 +142,7 @@ $conn->query("CREATE TABLE IF NOT EXISTS questions (
 
 // ── AJAX: Fetch questions from ALOC ──────────────────────────────
 if (isset($_GET['action']) && $_GET['action'] === 'fetch') {
+  ob_clean();
   header('Content-Type: application/json; charset=utf-8');
   $subj_name = trim($_GET['subject'] ?? '');
   $exam_type = trim($_GET['exam_type'] ?? 'utme');
@@ -194,6 +196,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'fetch') {
 
 // ── AJAX: Search — fetch 50 questions, filter by keyword/year ────
 if (isset($_GET['action']) && $_GET['action'] === 'search') {
+  ob_clean();
   header('Content-Type: application/json; charset=utf-8');
 
   $subj_name  = trim($_GET['subject']   ?? '');
@@ -291,6 +294,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'search') {
 
 // ── AJAX: Set question live for brainstorm ───────────────────────
 if ($_SERVER['REQUEST_METHOD']==='POST' && ($_POST['action']??'')==='set_live') {
+  ob_clean();
   header('Content-Type: application/json; charset=utf-8');
   $question  = trim($_POST['question'] ?? '');
   $opt_a     = trim($_POST['option_a'] ?? '');
@@ -346,6 +350,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST' && ($_POST['action']??'')==='set_live') 
 
 // ── AJAX: Get current live question ─────────────────────────────
 if (isset($_GET['action']) && $_GET['action'] === 'get_live') {
+  ob_clean();
   header('Content-Type: application/json; charset=utf-8');
   $r = $conn->query("SELECT q.*,s.name AS subject_name FROM questions q LEFT JOIN subjects s ON s.id=q.subject_id WHERE q.status='active' LIMIT 1");
   $live = $r ? $r->fetch_assoc() : null;
@@ -355,6 +360,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'get_live') {
 
 // ── AJAX: Deactivate live question ───────────────────────────────
 if ($_SERVER['REQUEST_METHOD']==='POST' && ($_POST['action']??'')==='stop_live') {
+  ob_clean();
   header('Content-Type: application/json; charset=utf-8');
   $conn->query("UPDATE questions SET status='inactive', timer_ends_at=NULL");
   echo json_encode(['success'=>true]);
@@ -989,11 +995,6 @@ html,body{height:100%;background:var(--bg);color:var(--text);
           <span id="topicBtnLabel">Choose Topic</span>
         </button>
       </div>
-    </div>
-      <button class="topic-open-btn" id="topicOpenBtn" onclick="openTopicModal()">
-        <i class="fa fa-layer-group" style="font-size:11px"></i>
-        <span id="topicBtnLabel">Choose Topic</span>
-      </button>
     </div>
     <div class="sb-footer">
       <a href="live_brainstorm_control.php" class="sb-link">
