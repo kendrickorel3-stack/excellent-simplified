@@ -26,16 +26,39 @@ define('ALOC_TOKEN','QB-b67089074cbb68438091');
 define('ALOC_BASE','https://questions.aloc.com.ng/api/v2');
 
 $SUBJECTS = [
-  'Mathematics'     => ['slug'=>'mathematics',  'icon'=>'📐','color'=>'#3b82f6'],
   'Physics'         => ['slug'=>'physics',       'icon'=>'⚡','color'=>'#f59e0b'],
   'Chemistry'       => ['slug'=>'chemistry',     'icon'=>'⚗️','color'=>'#00c98a'],
   'Biology'         => ['slug'=>'biology',       'icon'=>'🧬','color'=>'#a78bfa'],
-  'English Language'=> ['slug'=>'english',       'icon'=>'📖','color'=>'#ff6b6b'],
-  'Government'      => ['slug'=>'government',    'icon'=>'🏛','color'=>'#06b6d4'],
-  'Economics'       => ['slug'=>'economics',     'icon'=>'📊','color'=>'#ec4899'],
-  'Geography'       => ['slug'=>'geography',     'icon'=>'🌍','color'=>'#84cc16'],
-  'Literature'      => ['slug'=>'literature-in-english','icon'=>'📚','color'=>'#f97316'],
-  'Accounting'      => ['slug'=>'financial-accounting','icon'=>'💰','color'=>'#14b8a6'],
+  'Mathematics'     => ['slug'=>'mathematics',  'icon'=>'📐','color'=>'#3b82f6'],
+  'English'         => ['slug'=>'english',       'icon'=>'📖','color'=>'#ff6b6b'],
+];
+
+$TOPICS = [
+  'Physics' => [
+    'Mechanics','Waves & Sound','Light & Optics','Electricity','Magnetism',
+    'Heat & Temperature','Modern Physics','Atomic Structure','Nuclear Physics',
+    'Motion','Work, Energy & Power','Pressure','Gravitational Field','Simple Machines'
+  ],
+  'Chemistry' => [
+    'Atomic Structure','Chemical Bonding','Organic Chemistry','Acids & Bases',
+    'Electrochemistry','Rates of Reaction','Equilibrium','Gases','Redox Reactions',
+    'Periodic Table','Hydrocarbons','Polymers','Metals','Environmental Chemistry'
+  ],
+  'Biology' => [
+    'Cell Biology','Genetics','Ecology','Evolution','Human Biology',
+    'Photosynthesis','Respiration','Reproduction','Classification','Nutrition',
+    'Excretion','Nervous System','Hormones','Diseases & Immunity','Plants'
+  ],
+  'Mathematics' => [
+    'Algebra','Calculus','Statistics','Geometry','Trigonometry',
+    'Number Theory','Sequences & Series','Matrices','Probability','Mensuration',
+    'Logarithms','Functions','Quadratic Equations','Fractions','Sets'
+  ],
+  'English' => [
+    'Comprehension','Grammar','Vocabulary','Oral English','Summary',
+    'Essay Writing','Sentence Structure','Synonyms & Antonyms','Idioms & Proverbs',
+    'Parts of Speech','Punctuation','Figures of Speech','Tenses','Literature'
+  ],
 ];
 
 $EXAM_TYPES = ['utme'=>'JAMB UTME','wassce'=>'WAEC SSCE','neco'=>'NECO'];
@@ -61,6 +84,8 @@ $conn->query("CREATE TABLE IF NOT EXISTS questions (
   aloc_source VARCHAR(30) DEFAULT NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+
+
 
 
 // ── AJAX: Fetch questions from ALOC ──────────────────────────────
@@ -287,6 +312,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST' && ($_POST['action']??'')==='stop_live')
 
 // ── Load subjects for sidebar ─────────────────────────────────────
 $subjects_json = json_encode($SUBJECTS, JSON_UNESCAPED_UNICODE);
+$topics_json = json_encode($TOPICS, JSON_UNESCAPED_UNICODE);
 ?><!doctype html>
 <html lang="en">
 <head>
@@ -303,6 +329,55 @@ $subjects_json = json_encode($SUBJECTS, JSON_UNESCAPED_UNICODE);
   --text:#e8ecf4;--sub:#8a93ab;--dim:#4a5268;
   --live:#ff4757;--live-glow:rgba(255,71,87,.4);
 }
+/* ── WOOD RED DARK MODE ── */
+body.dark-wood{
+  --bg:#1a0a06;--s1:#230e08;--s2:#2d1209;--s3:#38160c;--s4:#43190e;
+  --border:rgba(200,100,60,.12);--border2:rgba(200,100,60,.25);
+  --accent:#c0392b;--blue:#e74c3c;--amber:#e67e22;--danger:#ff6b35;--purple:#d35400;
+  --text:#f5e6e0;--sub:#b08070;--dim:#6b3a2a;
+  --live:#ff4500;--live-glow:rgba(255,69,0,.4);
+}
+/* ── LIGHT MODE ── */
+body.light-mode{
+  --bg:#f8f9fa;--s1:#ffffff;--s2:#f1f3f5;--s3:#e9ecef;--s4:#dee2e6;
+  --border:rgba(0,0,0,.08);--border2:rgba(0,0,0,.15);
+  --accent:#00a870;--blue:#2563eb;--amber:#d97706;--danger:#dc2626;--purple:#7c3aed;
+  --text:#1a1d23;--sub:#4a5568;--dim:#9ca3af;
+  --live:#dc2626;--live-glow:rgba(220,38,38,.3);
+}
+/* ── TOPIC PANEL ── */
+.topic-panel{
+  padding:10px 16px;border-bottom:1px solid var(--border);
+  background:var(--s1);display:none;flex-shrink:0;
+}
+.topic-panel.show{display:block}
+.topic-panel-title{
+  font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--dim);
+  margin-bottom:8px;
+}
+.topic-chips{display:flex;flex-wrap:wrap;gap:6px}
+.topic-chip{
+  padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600;
+  border:1.5px solid var(--border2);background:var(--s2);color:var(--sub);
+  cursor:pointer;transition:all .15s;white-space:nowrap;
+}
+.topic-chip:hover{color:var(--text);border-color:var(--accent);background:var(--s3)}
+.topic-chip.active{
+  background:rgba(0,201,138,.12);border-color:var(--accent);
+  color:var(--accent);font-weight:700;
+}
+body.dark-wood .topic-chip.active{
+  background:rgba(192,57,43,.15);border-color:var(--accent);color:var(--accent);
+}
+/* ── THEME TOGGLE BTN ── */
+.theme-toggle{
+  height:30px;padding:0 11px;border-radius:7px;background:var(--s2);
+  border:1px solid var(--border);color:var(--sub);cursor:pointer;
+  display:flex;align-items:center;gap:6px;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:12px;font-weight:600;transition:all .15s;flex-shrink:0;
+}
+.theme-toggle:hover{color:var(--text);border-color:var(--border2)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background:var(--bg);color:var(--text);
   font-family:'Plus Jakarta Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden}
@@ -768,6 +843,9 @@ html,body{height:100%;background:var(--bg);color:var(--text);
   <span class="tb-badge">ADMIN</span>
   <div class="tb-flex"></div>
   <div class="tb-right">
+    <button class="theme-toggle" id="themeBtn" onclick="cycleTheme()">
+      <i class="fa fa-moon" style="font-size:11px"></i> <span>Dark</span>
+    </button>
     <a href="live_brainstorm_control.php" class="t-btn" style="color:var(--danger);border-color:rgba(255,71,87,.3);background:rgba(255,71,87,.08)">
       <i class="fa fa-tower-broadcast" style="font-size:11px"></i> Brainstorm Control
     </a>
@@ -825,6 +903,12 @@ html,body{height:100%;background:var(--bg);color:var(--text);
       <div class="mode-tab" id="tabSearch" onclick="switchMode('search')">
         <i class="fa fa-magnifying-glass" style="font-size:10px;margin-right:5px"></i>Search &amp; Filter
       </div>
+    </div>
+
+    <!-- Topic Panel -->
+    <div class="topic-panel" id="topicPanel">
+      <div class="topic-panel-title">📌 Filter by Topic</div>
+      <div class="topic-chips" id="topicChips"></div>
     </div>
 
     <!-- Browse toolbar (subject + type + count + Load) -->
@@ -951,10 +1035,13 @@ html,body{height:100%;background:var(--bg);color:var(--text);
 <script>
 /* ══ DATA ══ */
 const SUBJECTS = <?= $subjects_json ?>;
+const TOPICS   = <?= $topics_json ?>;
 
 /* ══ STATE ══ */
 let curMode      = 'browse'; // 'browse' | 'search'
 let curSubject   = null;
+let curTopic     = null;
+let curTheme     = localStorage.getItem('aloc_theme') || 'dark';
 let fetchCount   = 20;
 let loadedQs     = [];
 let filteredQs   = [];
@@ -967,6 +1054,7 @@ let lastSearchYr = '';
 buildSidebar();
 pollLive();
 setInterval(pollLive, 5000);
+applyTheme(curTheme);
 
 /* ══ MODE TABS ══ */
 function switchMode(mode) {
@@ -1021,6 +1109,66 @@ function buildSidebar(){
   });
 }
 
+/* ══ THEME ══ */
+function applyTheme(theme){
+  curTheme = theme;
+  document.body.className = '';
+  if(theme === 'dark-wood') document.body.classList.add('dark-wood');
+  else if(theme === 'light') document.body.classList.add('light-mode');
+  localStorage.setItem('aloc_theme', theme);
+  const btn = document.getElementById('themeBtn');
+  if(btn){
+    btn.innerHTML = theme === 'dark' 
+      ? '<i class="fa fa-moon" style="font-size:11px"></i> <span>Dark</span>'
+      : theme === 'dark-wood'
+      ? '<i class="fa fa-fire" style="font-size:11px"></i> <span>Wood</span>'
+      : '<i class="fa fa-sun" style="font-size:11px"></i> <span>Light</span>';
+  }
+}
+function cycleTheme(){
+  const themes = ['dark','dark-wood','light'];
+  const idx = themes.indexOf(curTheme);
+  applyTheme(themes[(idx+1) % themes.length]);
+}
+
+/* ══ TOPICS ══ */
+function buildTopicPanel(subjectName){
+  const panel = document.getElementById('topicPanel');
+  const chips = document.getElementById('topicChips');
+  chips.innerHTML = '';
+  curTopic = null;
+  const topics = TOPICS[subjectName] || [];
+  if(!topics.length){ panel.classList.remove('show'); return; }
+  // Add "All Topics" chip
+  const allChip = document.createElement('span');
+  allChip.className = 'topic-chip active';
+  allChip.textContent = 'All Topics';
+  allChip.onclick = () => selectTopic(null, allChip);
+  chips.appendChild(allChip);
+  topics.forEach(t => {
+    const chip = document.createElement('span');
+    chip.className = 'topic-chip';
+    chip.textContent = t;
+    chip.onclick = () => selectTopic(t, chip);
+    chips.appendChild(chip);
+  });
+  panel.classList.add('show');
+}
+
+function selectTopic(topic, el){
+  curTopic = topic;
+  document.querySelectorAll('.topic-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  // If in search mode, auto-fill keyword with topic
+  if(curMode === 'search' && topic){
+    document.getElementById('kwInput').value = topic;
+    syncClearBtn();
+  } else if(curMode === 'search'){
+    document.getElementById('kwInput').value = '';
+    syncClearBtn();
+  }
+}
+
 function selectSubject(name){
   curSubject = name;
   document.querySelectorAll('.subj-btn').forEach(b => {
@@ -1032,7 +1180,10 @@ function selectSubject(name){
   document.getElementById('loadBtn').disabled = false;
   document.getElementById('loadBtnLabel').textContent = `Load ${name}`;
   document.getElementById('searchBtn').disabled = false;
+  // Build topic panel
+  buildTopicPanel(name);
   // Clear previous
+  curTopic = null;
   loadedQs = []; filteredQs = [];
   document.getElementById('qContent').style.display = 'none';
   document.getElementById('stateEmpty').style.display = 'flex';
@@ -1063,7 +1214,8 @@ async function loadQuestions(){
 
   const examType = document.getElementById('examTypeSelect').value;
   try{
-    const r = await fetch(`aloc_panel.php?action=fetch&subject=${encodeURIComponent(curSubject)}&exam_type=${examType}&count=${fetchCount}`);
+    const topicKw = curTopic ? `&keyword=${encodeURIComponent(curTopic)}` : '';
+    const r = await fetch(`aloc_panel.php?action=fetch&subject=${encodeURIComponent(curSubject)}&exam_type=${examType}&count=${fetchCount}${topicKw}`);
     const j = await r.json();
     hideLoading();
     document.getElementById('loadBtn').disabled = false;
