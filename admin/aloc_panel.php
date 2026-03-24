@@ -35,29 +35,80 @@ $SUBJECTS = [
 
 $TOPICS = [
   'Physics' => [
-    'Mechanics','Waves & Sound','Light & Optics','Electricity','Magnetism',
-    'Heat & Temperature','Modern Physics','Atomic Structure','Nuclear Physics',
-    'Motion','Work, Energy & Power','Pressure','Gravitational Field','Simple Machines'
+    'Mechanics','Motion','Velocity & Acceleration','Newton Laws of Motion',
+    'Work Energy & Power','Simple Machines','Pressure','Archimedes Principle',
+    'Waves & Sound','Light & Optics','Reflection & Refraction','Lens & Mirrors',
+    'Electricity','Current & Resistance','Ohm Law','Electric Circuits',
+    'Magnetism','Electromagnetic Induction','Capacitors','Transformers',
+    'Heat & Temperature','Thermal Expansion','Gas Laws','Specific Heat Capacity',
+    'Atomic Structure','Radioactivity','Nuclear Physics','X-Rays',
+    'Simple Harmonic Motion','Gravitational Field','Satellites & Orbits',
+    'Projectile Motion','Friction','Equilibrium','Moments & Couples',
   ],
   'Chemistry' => [
-    'Atomic Structure','Chemical Bonding','Organic Chemistry','Acids & Bases',
-    'Electrochemistry','Rates of Reaction','Equilibrium','Gases','Redox Reactions',
-    'Periodic Table','Hydrocarbons','Polymers','Metals','Environmental Chemistry'
+    'Atomic Structure','Electronic Configuration','Periodic Table','Periodicity',
+    'Chemical Bonding','Ionic Bonding','Covalent Bonding','Metallic Bonding',
+    'Acids & Bases','pH Scale','Neutralization','Salts',
+    'Organic Chemistry','Hydrocarbons','Alkanes','Alkenes','Alkynes',
+    'Alcohols','Carboxylic Acids','Esters','Polymers',
+    'Electrochemistry','Electrolysis','Galvanic Cells','Oxidation & Reduction',
+    'Rates of Reaction','Catalysts','Equilibrium','Le Chatelier Principle',
+    'Gases','Kinetic Theory','Gas Laws','Mole Concept',
+    'Metals','Extraction of Metals','Corrosion','Alloys',
+    'Water','Hardness of Water','Purification','Environmental Chemistry',
+    'Redox Reactions','Oxidation Numbers','Stoichiometry','Chemical Equations',
   ],
   'Biology' => [
-    'Cell Biology','Genetics','Ecology','Evolution','Human Biology',
-    'Photosynthesis','Respiration','Reproduction','Classification','Nutrition',
-    'Excretion','Nervous System','Hormones','Diseases & Immunity','Plants'
+    'Cell Biology','Cell Structure','Cell Division','Osmosis & Diffusion',
+    'Genetics','DNA & RNA','Inheritance','Mendels Laws','Mutations',
+    'Ecology','Food Chains','Ecosystems','Population','Conservation',
+    'Evolution','Natural Selection','Adaptation','Fossil Records',
+    'Photosynthesis','Leaf Structure','Light & Dark Reactions','Chlorophyll',
+    'Respiration','Aerobic Respiration','Anaerobic Respiration','ATP',
+    'Nutrition','Digestion','Digestive System','Enzymes','Food Tests',
+    'Reproduction','Sexual Reproduction','Asexual Reproduction','Fertilization',
+    'Nervous System','Brain','Spinal Cord','Sense Organs','Reflex Action',
+    'Hormones','Endocrine System','Insulin','Adrenaline',
+    'Excretion','Kidney','Liver','Skin','Lungs',
+    'Circulatory System','Heart','Blood','Blood Groups',
+    'Respiratory System','Breathing','Gas Exchange',
+    'Diseases & Immunity','Vaccines','Pathogens','White Blood Cells',
+    'Plants','Phototropism','Transpiration','Root & Shoot','Flowers',
+    'Classification','Kingdom','Phylum','Species','Taxonomy',
+    'Human Biology','Skeleton','Muscles','Joints','Movement',
   ],
   'Mathematics' => [
-    'Algebra','Calculus','Statistics','Geometry','Trigonometry',
-    'Number Theory','Sequences & Series','Matrices','Probability','Mensuration',
-    'Logarithms','Functions','Quadratic Equations','Fractions','Sets'
+    'Algebra','Linear Equations','Simultaneous Equations','Inequalities',
+    'Quadratic Equations','Factorization','Completing the Square','Formula',
+    'Functions','Domain & Range','Composite Functions','Inverse Functions',
+    'Calculus','Differentiation','Integration','Rates of Change','Maxima & Minima',
+    'Statistics','Mean Median Mode','Standard Deviation','Frequency Distribution',
+    'Probability','Sample Space','Tree Diagrams','Permutation & Combination',
+    'Geometry','Angles','Triangles','Circles','Polygons',
+    'Trigonometry','Sin Cos Tan','Sine Rule','Cosine Rule','Bearings',
+    'Mensuration','Area','Volume','Surface Area','Perimeter',
+    'Sequences & Series','Arithmetic Progression','Geometric Progression','Sum of Series',
+    'Matrices','Matrix Operations','Determinants','Inverse Matrix',
+    'Logarithms','Laws of Logarithms','Natural Log','Change of Base',
+    'Number Theory','Prime Numbers','HCF & LCM','Surds','Indices',
+    'Sets','Union & Intersection','Venn Diagrams','Complement',
+    'Vectors','Vector Addition','Scalar & Dot Product','Magnitude',
+    'Coordinate Geometry','Straight Lines','Gradient','Midpoint','Distance',
   ],
   'English' => [
-    'Comprehension','Grammar','Vocabulary','Oral English','Summary',
-    'Essay Writing','Sentence Structure','Synonyms & Antonyms','Idioms & Proverbs',
-    'Parts of Speech','Punctuation','Figures of Speech','Tenses','Literature'
+    'Comprehension','Reading Skills','Inference','Summary Writing',
+    'Grammar','Parts of Speech','Nouns','Pronouns','Verbs','Adjectives','Adverbs',
+    'Sentence Structure','Clauses','Phrases','Simple Compound Complex',
+    'Tenses','Present Past Future','Perfect Tenses','Continuous Tenses',
+    'Vocabulary','Synonyms','Antonyms','Homonyms','Word Formation',
+    'Idioms & Proverbs','Common Idioms','Nigerian Proverbs','Figurative Language',
+    'Oral English','Vowel Sounds','Consonants','Stress & Intonation','Phonemes',
+    'Essay Writing','Formal Letters','Informal Letters','Report Writing',
+    'Figures of Speech','Simile','Metaphor','Personification','Hyperbole',
+    'Punctuation','Comma Usage','Apostrophe','Semicolon','Quotation Marks',
+    'Literature','Poetry','Prose','Drama','African Literature',
+    'Concord & Agreement','Subject Verb Agreement','Pronoun Agreement',
+    'Direct & Indirect Speech','Reported Speech','Question Tags',
   ],
 ];
 
@@ -345,30 +396,87 @@ body.light-mode{
   --text:#1a1d23;--sub:#4a5568;--dim:#9ca3af;
   --live:#dc2626;--live-glow:rgba(220,38,38,.3);
 }
-/* ── TOPIC PANEL ── */
-.topic-panel{
-  padding:10px 16px;border-bottom:1px solid var(--border);
-  background:var(--s1);display:none;flex-shrink:0;
+/* ── TOPIC POPUP MODAL ── */
+.topic-modal-ov{
+  display:none;position:fixed;inset:0;z-index:150;
+  background:rgba(4,2,14,.88);backdrop-filter:blur(10px);
+  align-items:center;justify-content:center;padding:20px;
 }
-.topic-panel.show{display:block}
-.topic-panel-title{
-  font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--dim);
-  margin-bottom:8px;
+.topic-modal-ov.show{display:flex}
+.topic-modal{
+  width:100%;max-width:680px;max-height:85vh;
+  background:var(--s1);border:1px solid var(--border2);
+  border-radius:20px;overflow:hidden;
+  animation:popIn .25s cubic-bezier(.22,1,.36,1) both;
+  display:flex;flex-direction:column;
 }
-.topic-chips{display:flex;flex-wrap:wrap;gap:6px}
+.topic-modal-head{
+  padding:16px 20px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;flex-shrink:0;
+}
+.topic-modal-icon{
+  width:36px;height:36px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.topic-modal-title{font-size:15px;font-weight:700;flex:1}
+.topic-modal-sub{font-size:11px;color:var(--sub);margin-top:2px}
+.topic-modal-x{
+  width:30px;height:30px;border-radius:8px;background:var(--s2);
+  border:1px solid var(--border);color:var(--sub);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:12px;transition:all .15s;
+}
+.topic-modal-x:hover{color:var(--text)}
+.topic-modal-body{padding:16px 20px;overflow-y:auto;flex:1}
+.topic-section{margin-bottom:16px}
+.topic-section-title{
+  font-family:'Space Mono',monospace;font-size:9px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--dim);
+  margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border);
+}
+.topic-chips{display:flex;flex-wrap:wrap;gap:7px}
 .topic-chip{
-  padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600;
+  padding:7px 14px;border-radius:22px;font-size:12px;font-weight:600;
   border:1.5px solid var(--border2);background:var(--s2);color:var(--sub);
-  cursor:pointer;transition:all .15s;white-space:nowrap;
+  cursor:pointer;transition:all .18s;white-space:nowrap;
 }
-.topic-chip:hover{color:var(--text);border-color:var(--accent);background:var(--s3)}
+.topic-chip:hover{color:var(--text);border-color:var(--accent);background:var(--s3);transform:translateY(-1px)}
 .topic-chip.active{
-  background:rgba(0,201,138,.12);border-color:var(--accent);
+  background:rgba(0,201,138,.15);border-color:var(--accent);
   color:var(--accent);font-weight:700;
 }
 body.dark-wood .topic-chip.active{
   background:rgba(192,57,43,.15);border-color:var(--accent);color:var(--accent);
+}
+.topic-chip.all-chip{
+  background:var(--s3);border-color:var(--border2);color:var(--text);font-weight:700;
+}
+.topic-chip.all-chip.active{
+  background:rgba(59,130,246,.15);border-color:var(--blue);color:var(--blue);
+}
+.topic-modal-foot{
+  padding:12px 20px;border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0;
+}
+.topic-selected-label{font-size:12px;color:var(--sub)}
+.topic-selected-val{font-weight:700;color:var(--accent)}
+.topic-load-btn{
+  display:flex;align-items:center;gap:7px;padding:9px 20px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),var(--blue));color:#000;
+  border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;
+  cursor:pointer;transition:all .18s;box-shadow:0 3px 12px rgba(0,201,138,.2);
+}
+.topic-load-btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,201,138,.3)}
+/* Topic button in sidebar */
+.topic-open-btn{
+  display:flex;align-items:center;gap:7px;width:calc(100% - 24px);
+  margin:4px 12px 8px;padding:8px 12px;border-radius:10px;
+  background:rgba(0,201,138,.08);border:1.5px dashed rgba(0,201,138,.3);
+  color:var(--accent);cursor:pointer;font-size:12px;font-weight:600;
+  transition:all .15s;justify-content:center;
+}
+.topic-open-btn:hover{background:rgba(0,201,138,.15);border-style:solid}
+.topic-open-btn.has-topic{
+  background:rgba(0,201,138,.15);border-style:solid;
 }
 /* ── THEME TOGGLE BTN ── */
 .theme-toggle{
@@ -876,6 +984,12 @@ html,body{height:100%;background:var(--bg);color:var(--text);
       <div class="sb-section">Subjects</div>
       <div id="sbList"></div>
     </div>
+    <div id="topicBtnWrap" style="display:none">
+      <button class="topic-open-btn" id="topicOpenBtn" onclick="openTopicModal()">
+        <i class="fa fa-layer-group" style="font-size:11px"></i>
+        <span id="topicBtnLabel">Choose Topic</span>
+      </button>
+    </div>
     <div class="sb-footer">
       <a href="live_brainstorm_control.php" class="sb-link">
         <i class="fa fa-tower-broadcast" style="width:14px;color:var(--danger)"></i>
@@ -903,12 +1017,6 @@ html,body{height:100%;background:var(--bg);color:var(--text);
       <div class="mode-tab" id="tabSearch" onclick="switchMode('search')">
         <i class="fa fa-magnifying-glass" style="font-size:10px;margin-right:5px"></i>Search &amp; Filter
       </div>
-    </div>
-
-    <!-- Topic Panel -->
-    <div class="topic-panel" id="topicPanel">
-      <div class="topic-panel-title">📌 Filter by Topic</div>
-      <div class="topic-chips" id="topicChips"></div>
     </div>
 
     <!-- Browse toolbar (subject + type + count + Load) -->
@@ -1032,6 +1140,30 @@ html,body{height:100%;background:var(--bg);color:var(--text);
 
 </div><!-- /app -->
 
+<!-- Topic Modal -->
+<div class="topic-modal-ov" id="topicModalOv" onclick="if(event.target===this)closeTopicModal()">
+  <div class="topic-modal">
+    <div class="topic-modal-head">
+      <div class="topic-modal-icon" id="topicModalIcon">📚</div>
+      <div>
+        <div class="topic-modal-title" id="topicModalTitle">Choose a Topic</div>
+        <div class="topic-modal-sub">Questions will load automatically for selected topic</div>
+      </div>
+      <button class="topic-modal-x" onclick="closeTopicModal()"><i class="fa fa-xmark"></i></button>
+    </div>
+    <div class="topic-modal-body" id="topicModalBody"></div>
+    <div class="topic-modal-foot">
+      <div class="topic-selected-label">
+        Selected: <span class="topic-selected-val" id="topicSelectedVal">All Topics</span>
+      </div>
+      <button class="topic-load-btn" onclick="loadFromTopicModal()">
+        <i class="fa fa-cloud-arrow-down" style="font-size:12px"></i>
+        Load Questions
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ══ DATA ══ */
 const SUBJECTS = <?= $subjects_json ?>;
@@ -1131,35 +1263,66 @@ function cycleTheme(){
   applyTheme(themes[(idx+1) % themes.length]);
 }
 
-/* ══ TOPICS ══ */
-function buildTopicPanel(subjectName){
-  const panel = document.getElementById('topicPanel');
-  const chips = document.getElementById('topicChips');
-  chips.innerHTML = '';
-  curTopic = null;
-  const topics = TOPICS[subjectName] || [];
-  if(!topics.length){ panel.classList.remove('show'); return; }
-  // Add "All Topics" chip
+/* ══ TOPIC MODAL ══ */
+function openTopicModal(){
+  if(!curSubject){ toast('⚠️ Select a subject first', 'err'); return; }
+  const topics = TOPICS[curSubject] || [];
+  const body = document.getElementById('topicModalBody');
+  const info = SUBJECTS[curSubject];
+  document.getElementById('topicModalTitle').textContent = curSubject + ' Topics';
+  document.getElementById('topicModalIcon').textContent = info.icon || '📚';
+  document.getElementById('topicModalIcon').style.background = (info.color||'#00c98a') + '22';
+  body.innerHTML = '';
+  // All Topics chip
+  const allWrap = document.createElement('div');
+  allWrap.className = 'topic-section';
+  allWrap.innerHTML = '<div class="topic-section-title">🌐 General</div>';
+  const allChips = document.createElement('div');
+  allChips.className = 'topic-chips';
   const allChip = document.createElement('span');
-  allChip.className = 'topic-chip active';
-  allChip.textContent = 'All Topics';
-  allChip.onclick = () => selectTopic(null, allChip);
-  chips.appendChild(allChip);
+  allChip.className = 'topic-chip all-chip' + (curTopic===null?' active':'');
+  allChip.textContent = '📚 All Topics';
+  allChip.onclick = () => { selectTopic(null); };
+  allChips.appendChild(allChip);
+  allWrap.appendChild(allChips);
+  body.appendChild(allWrap);
+  // Topic chips
+  const topicWrap = document.createElement('div');
+  topicWrap.className = 'topic-section';
+  topicWrap.innerHTML = '<div class="topic-section-title">📌 Specific Topics</div>';
+  const topicChips = document.createElement('div');
+  topicChips.className = 'topic-chips';
   topics.forEach(t => {
     const chip = document.createElement('span');
-    chip.className = 'topic-chip';
+    chip.className = 'topic-chip' + (curTopic===t?' active':'');
     chip.textContent = t;
-    chip.onclick = () => selectTopic(t, chip);
-    chips.appendChild(chip);
+    chip.onclick = () => { selectTopic(t); };
+    topicChips.appendChild(chip);
   });
-  panel.classList.add('show');
+  topicWrap.appendChild(topicChips);
+  body.appendChild(topicWrap);
+  updateTopicSelectedVal();
+  document.getElementById('topicModalOv').classList.add('show');
+  document.body.style.overflow = 'hidden';
 }
 
-function selectTopic(topic, el){
+function closeTopicModal(){
+  document.getElementById('topicModalOv').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function selectTopic(topic){
   curTopic = topic;
-  document.querySelectorAll('.topic-chip').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-  // If in search mode, auto-fill keyword with topic
+  // Update active chip in modal
+  document.querySelectorAll('#topicModalBody .topic-chip').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('#topicModalBody .topic-chip').forEach(c => {
+    if(topic === null && c.classList.contains('all-chip')) c.classList.add('active');
+    else if(c.textContent === topic) c.classList.add('active');
+  });
+  updateTopicSelectedVal();
+  // Update sidebar button
+  updateTopicBtn();
+  // If in search mode, auto-fill keyword
   if(curMode === 'search' && topic){
     document.getElementById('kwInput').value = topic;
     syncClearBtn();
@@ -1169,8 +1332,38 @@ function selectTopic(topic, el){
   }
 }
 
+function updateTopicSelectedVal(){
+  const el = document.getElementById('topicSelectedVal');
+  if(el) el.textContent = curTopic || 'All Topics';
+}
+
+function updateTopicBtn(){
+  const btn = document.getElementById('topicOpenBtn');
+  const label = document.getElementById('topicBtnLabel');
+  if(!btn) return;
+  if(curTopic){
+    btn.classList.add('has-topic');
+    label.textContent = '📌 ' + curTopic;
+  } else {
+    btn.classList.remove('has-topic');
+    label.textContent = 'Choose Topic';
+  }
+}
+
+function loadFromTopicModal(){
+  closeTopicModal();
+  // Auto load questions with selected topic
+  if(curMode === 'browse'){
+    loadQuestions();
+  } else {
+    if(curTopic) document.getElementById('kwInput').value = curTopic;
+    doSearch();
+  }
+}
+
 function selectSubject(name){
   curSubject = name;
+  curTopic = null;
   document.querySelectorAll('.subj-btn').forEach(b => {
     const on = b.dataset.name === name;
     b.classList.toggle('active', on);
@@ -1180,10 +1373,11 @@ function selectSubject(name){
   document.getElementById('loadBtn').disabled = false;
   document.getElementById('loadBtnLabel').textContent = `Load ${name}`;
   document.getElementById('searchBtn').disabled = false;
-  // Build topic panel
-  buildTopicPanel(name);
+  // Show topic button
+  const wrap = document.getElementById('topicBtnWrap');
+  if(wrap) wrap.style.display = 'block';
+  updateTopicBtn();
   // Clear previous
-  curTopic = null;
   loadedQs = []; filteredQs = [];
   document.getElementById('qContent').style.display = 'none';
   document.getElementById('stateEmpty').style.display = 'flex';
@@ -1215,7 +1409,7 @@ async function loadQuestions(){
   const examType = document.getElementById('examTypeSelect').value;
   try{
     const topicKw = curTopic ? `&keyword=${encodeURIComponent(curTopic)}` : '';
-    const r = await fetch(`aloc_panel.php?action=fetch&subject=${encodeURIComponent(curSubject)}&exam_type=${examType}&count=${fetchCount}${topicKw}`);
+    const r = await fetch(`aloc_panel.php?action=fetch&subject=${encodeURIComponent(curSubject)}&exam_type=${examType}&count=${fetchCount}${topicKw}&_=${Date.now()}`);
     const j = await r.json();
     hideLoading();
     document.getElementById('loadBtn').disabled = false;
@@ -1587,7 +1781,7 @@ function closeModal(){
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => {
-  if(e.key==='Escape'){ closeModal(); closeSidebar(); }
+  if(e.key==='Escape'){ closeModal(); closeSidebar(); closeTopicModal(); }
 });
 
 /* ══ LOADING ══ */
@@ -1614,3 +1808,4 @@ function esc(s){ return s?String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt
 </script>
 </body>
 </html>
+
