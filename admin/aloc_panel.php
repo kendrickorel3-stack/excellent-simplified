@@ -983,8 +983,13 @@ html,body{height:100%;background:var(--bg);color:var(--text);
     <div class="sb-inner">
       <div class="sb-section">Subjects</div>
       <div id="sbList"></div>
+      <div id="topicBtnWrap" style="display:none">
+        <button class="topic-open-btn" id="topicOpenBtn" onclick="openTopicModal()">
+          <i class="fa fa-layer-group" style="font-size:11px"></i>
+          <span id="topicBtnLabel">Choose Topic</span>
+        </button>
+      </div>
     </div>
-    <div id="topicBtnWrap" style="display:none">
       <button class="topic-open-btn" id="topicOpenBtn" onclick="openTopicModal()">
         <i class="fa fa-layer-group" style="font-size:11px"></i>
         <span id="topicBtnLabel">Choose Topic</span>
