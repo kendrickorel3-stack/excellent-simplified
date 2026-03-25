@@ -1,21 +1,13 @@
 User-agent: *
 Allow: /
-Allow: /index.php
-Allow: /login.php
-Allow: /signup.php
 
-# Block private/admin areas from indexing
-Disallow: /dashboard.php
-Disallow: /admin/
-Disallow: /auth/
-Disallow: /config/
-Disallow: /api/
-Disallow: /debug.php
-Disallow: /error.php
+User-agent: Googlebot
+Allow: /
 
-# Block backup files
-Disallow: *.bak
-Disallow: *.sql
-Disallow: *.gz
+User-agent: Mediapartners-Google
+Allow: /
 
-Sitemap: https://excellent-simplified.ct.ws/sitemap.xml
+User-agent: AdsBot-Google
+Allow: /
+
+Sitemap: https://excellent-simplified-production.up.railway.app/sitemap.xml
