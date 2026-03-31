@@ -996,7 +996,6 @@ footer {
     </a>
 
     <a class="fcard fcard-formula" href="formula.php" style="animation-delay:.18s">
-      <span class="new-badge">NEW</span>
       <div class="fcard-top">
         <div class="fcard-icon">📐</div>
         <div class="fcard-title">Formula Panel</div>
@@ -1027,6 +1026,16 @@ footer {
       </div>
       <div class="fcard-desc">Browse by topic</div>
     </a>
+
+<a class="fcard" href="challenge.php" style=<"animation-delay:.27s">
+   <span class="new-badge">NEW</span>
+      <div class="fcard-top">
+        <div class="fcard-icon" style="background:rgba(255,255,255,.06)">📚</div>
+        <div class="fcard-title">challenge</div>
+      </div>
+      <div class="fcard-desc">Check how much you trully know  </div>
+    </a>
+
 
   </div>
 
